@@ -1,0 +1,66 @@
+---
+
+sonar_config_file: '/opt/sonar/conf/sonar.properties'
+
+sonar_config_loop:
+  - key: 'sonar.web.host'
+    value: '{{ sonar_web_host }}'
+  - key: 'sonar.web.port'
+    value: '{{ sonar_web_port }}'
+  - key: 'sonar.web.http.minThreads'
+    value: '{{ sonar_web_http_minThreads }}'
+  - key: 'sonar.web.http.maxThreads'
+    value: '{{ sonar_web_http_maxThreads }}'
+  - key: 'sonar.web.http.acceptCount'
+    value: '{{ sonar_web_http_acceptCount }}'
+  - key: 'sonar.jdbc.username'
+    value: '{{ sonar_database_user }}'
+  - key: 'sonar.jdbc.password'
+    value: '{{ sonar.jdbc.password }}'
+# - key: ''
+#   value: '{{   }}'
+# - key: ''
+#   value: '{{   }}'
+# - key: ''
+#   value: '{{   }}'
+# - key: ''
+#   value: '{{   }}'
+# - key: ''
+#   value: '{{   }}'
+# - key: ''
+#   value: '{{   }}'
+# - key: ''
+#   value: '{{   }}'
+# - key: ''
+#   value: '{{   }}'
+# - key: ''
+#   value: '{{   }}'
+# - key: ''
+#   value: '{{   }}'
+
+#sonar.jdbc.maxActive=60
+#sonar.jdbc.maxIdle=5
+#sonar.jdbc.minIdle=2
+#sonar.jdbc.maxWait=5000
+#sonar.jdbc.minEvictableIdleTimeMillis=600000
+#sonar.jdbc.timeBetweenEvictionRunsMillis=30000
+#sonar.web.javaOpts=-Xmx768m -Xms256m -XX:MaxPermSize=160m -XX:+HeapDumpOnOutOfMemoryError -Djava.net.preferIPv4Stack=true
+#sonar.web.javaAdditionalOpts=
+#sonar.search.javaOpts=-Xmx1G -Xms256m -Xss256k -Djava.net.preferIPv4Stack=true \
+#sonar.search.javaAdditionalOpts=
+#sonar.search.port=9001
+#sonar.search.host=127.0.0.1
+#sonar.updatecenter.activate=true
+#sonar.log.level=INFO
+#sonar.path.logs=logs
+#sonar.log.rollingPolicy=time:yyyy-MM-dd
+#sonar.log.maxFiles=7
+#sonar.web.accessLogs.enable=true
+#sonar.web.accessLogs.pattern=combined
+#sonar.notifications.delay=60
+#sonar.path.data=data
+#sonar.path.temp=temp
+#sonar.web.dev=false
+#sonar.web.dev.sources=/path/to/server/sonar-web/src/main/webapp
+#sonar.search.httpPort=-1
+

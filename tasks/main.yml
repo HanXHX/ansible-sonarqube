@@ -1,0 +1,48 @@
+---
+
+#- name: APT_KEY | Add sourceforce GPG key
+#  apt_key: >
+#    keyserver=pool.sks-keyservers.net
+#    id=E328F22B
+#    state=present
+
+- name: ASSERT | Check variables
+  assert:
+    that: "sonar_database_vendor is none or sonar_database_vendor in ['mysql', 'postgresql']"
+
+
+- name: APT_REPOSITORY | Add repo
+  apt_repository: repo='deb http://downloads.sourceforge.net/project/sonar-pkg/deb binary/'
+
+# No GPG key? :(
+
+- name: APT | Install Java
+  apt: >
+    pkg=openjdk-7-jre
+    update_cache=yes
+    cache_valid_time=3600
+
+- name: APT | Install Sonar
+  apt: >
+    pkg=sonar
+    state=present
+    force=yes
+
+- name: LINEINFILE | Configure
+  lineinfile: >
+    dest="{{ sonar_config_file }}"
+    line="{{ item.key }}={{ item.value | default('') }}"
+    regexp="^#?{{ item.key | replace('.', '\.') }}"
+  with_items: "{{ sonar_config_loop }}"
+  when: item.value is defined and item.value is not none
+  notify: restart sonar
+
+- name: LINEINFILE | Configure
+  lineinfile: >
+    backrefs=yes
+    dest="{{ sonar_config_file }}"
+    line="#{{ item.key }}=\1"
+    regexp="^{{ item.key | replace('.', '\.') }}=(.*)$"
+  with_items: "{{ sonar_config_loop }}"
+  when: item.value is not defined or item.value is none
+  notify: restart sonar

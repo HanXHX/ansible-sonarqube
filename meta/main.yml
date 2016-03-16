@@ -1,0 +1,20 @@
+galaxy_info:
+  author: Emilien Mantel
+  description: Install and configure Sonarqube 
+  company: 
+  license: GPLv2
+  min_ansible_version: 2.0
+
+  platforms:
+  - name: Debian
+    versions:
+    - jessie
+  
+  galaxy_tags:
+  - sonar
+  - sonarqube
+  - ci
+  - web
+  - debian
+
+dependencies: []

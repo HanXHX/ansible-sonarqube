@@ -1,0 +1,20 @@
+---
+
+sonar_web_host: '0.0.0.0'
+sonar_web_port: 9000
+
+sonar_web_http_minThreads: 5
+sonar_web_http_maxThreads: 50
+sonar_web_http_acceptCount: 25 
+
+
+# Database management
+sonar_database_vendor: null 
+sonar_database_host: 'localhost' 
+sonar_database_user: null
+sonar_database_pass: null
+
+# Default
+sonar_default_port_embedded: 9002
+sonar_default_port_mysql: 3306
+sonar_default_port_postgresql: 5332

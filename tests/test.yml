@@ -1,0 +1,7 @@
+---
+
+- hosts: all
+  vars:
+    sonar_web_http_minThreads: null    
+  roles:
+    - ../../
